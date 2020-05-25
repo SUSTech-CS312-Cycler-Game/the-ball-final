@@ -1,0 +1,92 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scence/Elements/Single_Camera.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scence/Players/Single_Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scence/Elements/LightRig.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scence/Elements/playground.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scripts/Sections/world.gd" type="Script" id=5]
+[ext_resource path="res://UI/single_inner_UI.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scence/Elements/Pick Up.tscn" type="PackedScene" id=7]
+[ext_resource path="res://bgm/Crest - to the Journey.ogg" type="AudioStream" id=8]
+
+[node name="World" type="Spatial"]
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true,
+"_editor_description_": "playground_1"
+}
+
+[node name="LightRig" parent="." instance=ExtResource( 3 )]
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -104.815, 53.8372, 76.9668 )
+jump_force = 400
+power = 90
+frac_val = 3
+
+[node name="Camera" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 0.531103, 0.847307, 0, -0.847307, 0.531103, -104.397, 71.4629, 92.4168 )
+
+[node name="ground" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.43761, 0, 0 )
+
+[node name="UI" parent="." instance=ExtResource( 6 )]
+
+[node name="bgm_player" type="AudioStreamPlayer" parent="UI"]
+stream = ExtResource( 8 )
+
+[node name="Pick Ups" type="Spatial" parent="."]
+
+[node name="Pick Up" parent="Pick Ups" groups=[
+"pick up",
+] instance=ExtResource( 7 )]
+transform = Transform( 0.353553, -0.353553, 0, 0.25, 0.25, -0.353553, 0.25, 0.25, 0.353553, -66.23, 15.3739, -5.66847 )
+
+[node name="Pick Up2" parent="Pick Ups" groups=[
+"pick up",
+] instance=ExtResource( 7 )]
+transform = Transform( 0.353553, -0.353553, 0, 0.25, 0.25, -0.353553, 0.25, 0.25, 0.353553, 81.1515, 23.7544, -51.1539 )
+
+[node name="Pick Up3" parent="Pick Ups" groups=[
+"pick up",
+] instance=ExtResource( 7 )]
+transform = Transform( 0.353553, -0.353553, 0, 0.25, 0.25, -0.353553, 0.25, 0.25, 0.353553, -81.0522, 21.2443, 116.54 )
+
+[node name="Pick Up4" parent="Pick Ups" groups=[
+"pick up",
+] instance=ExtResource( 7 )]
+transform = Transform( 0.353553, -0.353553, 0, 0.25, 0.25, -0.353553, 0.25, 0.25, 0.353553, -91.99, 42.5625, 36.9368 )
+
+[node name="Pick Up5" parent="Pick Ups" groups=[
+"pick up",
+] instance=ExtResource( 7 )]
+transform = Transform( 0.353553, -0.353553, 0, 0.25, 0.25, -0.353553, 0.25, 0.25, 0.353553, 84.672, 23.2781, -71.2486 )
+
+[node name="Pick Up6" parent="Pick Ups" groups=[
+"pick up",
+] instance=ExtResource( 7 )]
+transform = Transform( 0.353553, -0.353553, 0, 0.25, 0.25, -0.353553, 0.25, 0.25, 0.353553, -102.41, 1.00001, -73.5874 )
+
+[node name="Pick Up7" parent="Pick Ups" groups=[
+"pick up",
+] instance=ExtResource( 7 )]
+transform = Transform( 0.353553, -0.353553, 0, 0.25, 0.25, -0.353553, 0.25, 0.25, 0.353553, -74.0689, 1, 45.3591 )
+
+[node name="Pick Up8" parent="Pick Ups" groups=[
+"pick up",
+] instance=ExtResource( 7 )]
+transform = Transform( 0.353553, -0.353553, 0, 0.25, 0.25, -0.353553, 0.25, 0.25, 0.353553, 66.838, 1.47383, 12.8362 )
+
+[node name="Pick Up9" parent="Pick Ups" groups=[
+"pick up",
+] instance=ExtResource( 7 )]
+transform = Transform( 0.353553, -0.353553, 0, 0.25, 0.25, -0.353553, 0.25, 0.25, 0.353553, 49.0259, 2.09975, 135.967 )
+
+[node name="Pick Up10" parent="Pick Ups" groups=[
+"pick up",
+] instance=ExtResource( 7 )]
+transform = Transform( 0.353553, -0.353553, 0, 0.25, 0.25, -0.353553, 0.25, 0.25, 0.353553, 48.0659, 1, 4.19134 )
+[connection signal="win" from="." to="UI" method="_on_World_win"]
+[connection signal="jump" from="Player" to="UI" method="_on_Player_jump"]
+[connection signal="out" from="Player" to="UI" method="_on_Player_out"]
+[connection signal="quit" from="UI" to="." method="_on_UI_quit"]

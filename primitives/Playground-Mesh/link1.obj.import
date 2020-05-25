@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/link1.obj-6032c6e858698a86c46bec7f17827070.mesh"
+
+[deps]
+
+files=[ "res://.import/link1.obj-6032c6e858698a86c46bec7f17827070.mesh" ]
+
+source_file="res://primitives/Playground-Mesh/link1.obj"
+dest_files=[ "res://.import/link1.obj-6032c6e858698a86c46bec7f17827070.mesh", "res://.import/link1.obj-6032c6e858698a86c46bec7f17827070.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

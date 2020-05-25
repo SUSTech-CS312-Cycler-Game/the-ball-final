@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/brick_break.wav-2e22735eb779cf52c07a96cb6c92c59c.sample"
+
+[deps]
+
+source_file="res://SE/brick_break.wav"
+dest_files=[ "res://.import/brick_break.wav-2e22735eb779cf52c07a96cb6c92c59c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

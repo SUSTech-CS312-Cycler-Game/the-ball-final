@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scence/Elements/Conveyor.gd" type="Script" id=1]
+[ext_resource path="res://primitives/left.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://primitives/animation/convey_animatedtexture.tres" type="Texture" id=4]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 4 )
+
+[sub_resource type="ConcavePolygonShape" id=2]
+data = PoolVector3Array( -1.5179, 0.7249, -2.197, 28.4821, 0.7249, -2.197, -1.5179, 0.7249, -22.197, -1.5179, 0.7249, -22.197, 28.4821, 0.7249, -2.197, 28.4821, 0.7249, -22.197, 28.4821, 6.7249, -22.197, 28.4821, 6.7249, -2.197, -1.5179, 6.7249, -22.197, -1.5179, 6.7249, -22.197, 28.4821, 6.7249, -2.197, -1.5179, 6.7249, -2.197, 28.4821, 0.7249, -22.197, 28.4821, 0.7249, -2.197, 28.4821, 6.7249, -22.197, 28.4821, 6.7249, -22.197, 28.4821, 0.7249, -2.197, 28.4821, 6.7249, -2.197, -1.5179, 0.7249, -22.197, 28.4821, 0.7249, -22.197, -1.5179, 6.7249, -22.197, -1.5179, 6.7249, -22.197, 28.4821, 0.7249, -22.197, 28.4821, 6.7249, -22.197, -1.5179, 0.7249, -2.197, -1.5179, 0.7249, -22.197, -1.5179, 6.7249, -2.197, -1.5179, 6.7249, -2.197, -1.5179, 0.7249, -22.197, -1.5179, 6.7249, -22.197, 28.4821, 0.7249, -2.197, -1.5179, 0.7249, -2.197, 28.4821, 6.7249, -2.197, 28.4821, 6.7249, -2.197, -1.5179, 0.7249, -2.197, -1.5179, 6.7249, -2.197 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.967875, 0.331741, 1 )
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 1 )
+transform_velocity = 8
+
+[node name="Conveyor" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1621, 0, 22.7681 )
+
+[node name="conveyor" type="MeshInstance" parent="Conveyor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.78687 )
+mesh = ExtResource( 3 )
+material/0 = SubResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Conveyor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.79074 )
+shape = SubResource( 2 )
+
+[node name="Area" type="Area" parent="Conveyor"]
+space_override = 3
+gravity_vec = Vector3( 0, 0, 0 )
+gravity = 20.0
+
+[node name="CollisionShape2" type="CollisionShape" parent="Conveyor/Area"]
+transform = Transform( 14.0984, 0, 0, 0, 3.67359, 0, 0, 0, 9.72719, 13.7373, 6.22365, -21.8635 )
+shape = SubResource( 3 )

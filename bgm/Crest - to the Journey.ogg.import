@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Crest - to the Journey.ogg-91234835683ec746787ed8e44ab765d9.oggstr"
+
+[deps]
+
+source_file="res://bgm/Crest - to the Journey.ogg"
+dest_files=[ "res://.import/Crest - to the Journey.ogg-91234835683ec746787ed8e44ab765d9.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

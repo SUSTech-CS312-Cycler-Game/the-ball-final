@@ -1,0 +1,40 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scence/Elements/Hammer.gd" type="Script" id=1]
+[ext_resource path="res://primitives/cube.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://primitives/images/gold_texture.jpg" type="Texture" id=3]
+
+[sub_resource type="CylinderMesh" id=1]
+
+[sub_resource type="Skin" id=2]
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 1, 0.952941, 0.631373, 1 )
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="CylinderShape" id=4]
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_texture = ExtResource( 3 )
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="Hammer" type="KinematicBody" parent="."]
+collision/safe_margin = 0.01
+
+[node name="hammer" type="MeshInstance" parent="Hammer"]
+transform = Transform( 2, 0, 0, 0, -3.25841e-07, -2, 0, 2, -3.25841e-07, 0, -12, 0 )
+mesh = SubResource( 1 )
+skin = SubResource( 2 )
+skeleton = NodePath("")
+material/0 = SubResource( 3 )
+
+[node name="hammer_collision" type="CollisionShape" parent="Hammer"]
+transform = Transform( 2, 0, 0, 0, -3.25841e-07, -2, 0, 2, -3.25841e-07, 0, -12, 0 )
+shape = SubResource( 4 )
+
+[node name="pole" type="MeshInstance" parent="Hammer"]
+transform = Transform( 0.1, 0, 0, 0, 6, 0, 0, 0, 0.1, 0, -6, 0 )
+mesh = ExtResource( 2 )
+material/0 = SubResource( 5 )
