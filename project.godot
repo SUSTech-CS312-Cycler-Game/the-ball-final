@@ -19,6 +19,10 @@ config/name="Ball Test"
 run/main_scene="res://start_menu.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/resizable=false
+
 [gdnative]
 
 singletons=[  ]
