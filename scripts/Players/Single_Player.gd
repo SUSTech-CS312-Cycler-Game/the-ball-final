@@ -76,7 +76,7 @@ func _physics_process(delta):
 	out_world()
 	
 func out_world():
-	if get_translation()[1] < -10:
+	if get_translation()[1] < -150:
 		emit_signal("out")
 		set_translation(initial_position)
 		set_linear_velocity(Vector3(0,0,0))
